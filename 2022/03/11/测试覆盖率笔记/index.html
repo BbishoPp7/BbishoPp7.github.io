@@ -10,7 +10,7 @@
     
     
     
-    <title>Hello World | BbishoPp</title>
+    <title>测试覆盖率笔记 | BbishoPp</title>
     <!-- inject:style -->
     <link href="/css/style.css" rel="stylesheet" type="text/css">
     <!-- endinject -->
@@ -73,7 +73,7 @@
         
         <li>
             <i class="cube-icon cube-icon-categories" aria-hidden="true"></i>
-            <a href="/categories/Notes">分类</a>
+            <a href="/categories">分类</a>
         </li>
         
         <li>
@@ -161,48 +161,206 @@
     <div class="cube-content">
         <div class="cube-left">
             <div class="cube-article">
-    <h1 class="title">Hello World</h1>
+    <h1 class="title">测试覆盖率笔记</h1>
     
     <div class="cube-article-header">
         <div class="cube-article-date">
             <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
             <!-- moment.js对象 -->
-            2022-03-09
+            2022-03-11
         </div>
         <div class="cube-article-tags">
     <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+    
+    <a href="/tags/ClassNote/">#ClassNote</a>
     
 </div>
     </div>
     
     <div class="cube-article-content cube-markdown">
         
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+        <h1 id="Criteria-Based-Test-Design"><a href="#Criteria-Based-Test-Design" class="headerlink" title="Criteria-Based Test Design"></a>Criteria-Based Test Design</h1><p>[toc]</p>
+<hr>
+<h2 id="一-新旧测试观念"><a href="#一-新旧测试观念" class="headerlink" title="一 新旧测试观念"></a>一 新旧测试观念</h2><ul>
+<li>旧的测试观念<ul>
+<li>旧的观点把重点放在每个软件开发阶段的测试上</li>
+<li>因为它与其他阶段非常不同单元，例如模块，集成，系统…</li>
+</ul>
+</li>
+<li>新的测试观念<ul>
+<li>侧重结构和标准方面<ul>
+<li>输入空间</li>
+<li>图</li>
+<li>逻辑表达式</li>
+<li>语法<br><img src="/2022/03/11/%E6%B5%8B%E8%AF%95%E8%A6%86%E7%9B%96%E7%8E%87%E7%AC%94%E8%AE%B0/Users/19318/Desktop/智能软件测试/考试与笔记/ch1.4笔记/1.png" alt="1"></li>
+</ul>
+</li>
+<li>每个阶段的测试设计基本相同</li>
+<li>创建模型是不同的</li>
+<li>选择值和自动化测试是不同的</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="二-测试覆盖率标准（Test-Coverage-Criteria）"><a href="#二-测试覆盖率标准（Test-Coverage-Criteria）" class="headerlink" title="二 测试覆盖率标准（Test Coverage Criteria）"></a>二 测试覆盖率标准（Test Coverage Criteria）</h2><ul>
+<li>Test Requirements:<ul>
+<li>测试用例必须满足或覆盖的软件的特定元素</li>
+</ul>
+</li>
+<li>Coverage Criterion:<ul>
+<li>对测试集施加测试要求的规则或规则集合</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>测试者的任务就是，建立针对测试软件的模型，寻找可以覆盖它的方法  </p>
+</blockquote>
+<hr>
+<h2 id="三-覆盖（Coverage）"><a href="#三-覆盖（Coverage）" class="headerlink" title="三 覆盖（Coverage）"></a>三 覆盖（Coverage）</h2><ul>
+<li><p>定义：</p>
+<ul>
+<li>给定<strong>覆盖标准C</strong>的一组<strong>测试需求TR</strong>，测试集T<strong>满足</strong>C覆盖当且仅当对于TR中的每个测试需求tr，T中至少有一个测试t，使得t满足tr</li>
+</ul>
+</li>
+<li><p><strong>不可行测试需求</strong>——无法满足的测试要求</p>
+<ul>
+<li>不存在满足测试要求的测试用例值</li>
+<li>示例：死代码</li>
+<li>对于大多数测试标准来说，不可行测试需求的检测在形式上是不可判定的</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>因此，100%的覆盖率在实践中是不可能的</p>
+</blockquote>
+<ul>
+<li>例子<br><img src="/2022/03/11/%E6%B5%8B%E8%AF%95%E8%A6%86%E7%9B%96%E7%8E%87%E7%AC%94%E8%AE%B0/Users/19318/Desktop/智能软件测试/考试与笔记/ch1.4笔记/2.png" alt="2"></li>
+</ul>
+<p>给定两个覆盖准则：</p>
+<blockquote>
+<p>口味覆盖：每种口味吃一个糖<br>颜色覆盖：每种颜色吃一个糖  </p>
+</blockquote>
+<ul>
+<li>给定一个测试集<br>T1 = { three Lemons, one Pistachio, two Cantaloupes, one Pear, one Tangerine, four Apricots }</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">测试集T1满足口味覆盖么?</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>答案：<font color="red">满足</font>，因为六种口味都测试到了</p>
+<ul>
+<li>给定一个测试集<br>T2 = { One Lemon, two Pistachios, one Pear, three Tangerines }</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">测试集T2满足口味覆盖么?</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>答案：<font color="red">不满足</font></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">测试集T2满足颜色覆盖么?</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>答案：<font color="red">满足</font></p>
+<hr>
+<h2 id="四-覆盖等级"><a href="#四-覆盖等级" class="headerlink" title="四 覆盖等级"></a>四 覆盖等级</h2><ul>
+<li><p><strong>T满足的测试要求的数量与TR大小的比率</strong></p>
+</li>
+<li><p>测试集T2的口味覆盖等级为4/6</p>
+</li>
+</ul>
+<hr>
+<h2 id="五-使用测试准则（Test-Criteria）的两种方法"><a href="#五-使用测试准则（Test-Criteria）的两种方法" class="headerlink" title="五 使用测试准则（Test Criteria）的两种方法"></a>五 使用测试准则（Test Criteria）的两种方法</h2><ul>
+<li><p>直接生成满足标准的测试值</p>
+<ul>
+<li>通常由研究界承担</li>
+<li>使用标准的最明显方式</li>
+<li>没有自动化工具很难</li>
+</ul>
+</li>
+<li><p>从外部生成测试值，并根据标准进行评估</p>
+<ul>
+<li>通常受到工业界的青睐</li>
+<li>有时误导</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Test Criteria有时被称为<strong>metrics</strong></p>
+</blockquote>
+<hr>
+<h2 id="六-Generators-and-Recognizers"><a href="#六-Generators-and-Recognizers" class="headerlink" title="六 Generators and Recognizers"></a>六 Generators and Recognizers</h2><ul>
+<li><p>生成器：自动生成满足标准的值的过程</p>
+</li>
+<li><p>识别器：决定一组给定测试值是否满足标准的程序</p>
+</li>
+</ul>
+<blockquote>
+<p>对于大多数标准来说，这两个都是不可证明的  </p>
+</blockquote>
+<ul>
+<li>与生成满足标准的测试相比，识别测试用例是否满足标准的频率要高得多</li>
+</ul>
+<hr>
+<h2 id="七-标准包含（Subsumption）"><a href="#七-标准包含（Subsumption）" class="headerlink" title="七 标准包含（Subsumption）"></a>七 标准包含（Subsumption）</h2><ul>
+<li>定义<ul>
+<li>测试标准C1包含C2当且仅当满足标准C1的每组测试用例也满足C2</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>对于每一组测试用例都必须为真</p>
+</blockquote>
+<ul>
+<li><p>例如上题：</p>
+<ul>
+<li><p>糖的味道标准包含了颜色标准</p>
+<ul>
+<li>如果我们品尝每种味道，我们就会品尝每种颜色中的一种</li>
+</ul>
+</li>
+<li><p>分支覆盖包含语句覆盖</p>
+<ul>
+<li>如果一个测试集覆盖了程序中的每个分支（满足分支标准），那么该测试集就保证也覆盖了每个语句</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="八-良好覆盖标准的特点"><a href="#八-良好覆盖标准的特点" class="headerlink" title="八 良好覆盖标准的特点"></a>八 良好覆盖标准的特点</h2><ol>
+<li><p>自动计算测试需求应该相当容易</p>
+</li>
+<li><p>生成测试值应该是有效的</p>
+</li>
+<li><p>由此产生的测试应尽可能多地揭示故障</p>
+</li>
+</ol>
+<blockquote>
+<p>包含只是故障揭示能力的粗略近似值</p>
+</blockquote>
+<h2 id="九-覆盖标准的优点"><a href="#九-覆盖标准的优点" class="headerlink" title="九 覆盖标准的优点"></a>九 覆盖标准的优点</h2><ul>
+<li><p>标准最大限度地提高了“成本效益”</p>
+<ul>
+<li>更少的测试更有效地发现故障</li>
+</ul>
+</li>
+<li><p>具有最小重叠的综合测试集</p>
+</li>
+<li><p>从软件工件到测试的可追溯性</p>
+<ul>
+<li>来源、需求、设计模型…</li>
+<li>回答每个测试的“为什么”</li>
+<li>对回归测试的内置支持</li>
+</ul>
+</li>
+<li><p>测试的“停止规则”可以提前知道需要进行多少次测试</p>
+<ul>
+<li>有利于自动操作</li>
+</ul>
+</li>
+<li><p>可以通过强大的工具得到很好的支持</p>
+</li>
+</ul>
 
     </div>
 </div>
 
 <div class="cube-article-nav">
     <ul>
-        
-        <li class="prev">
-            <a href="/2022/03/10/classnote/">
-                <i class="cube-icon cube-prev" aria-hidden="true"></i>
-                classnote
-            </a>
-        </li>
         
         
     </ul>
@@ -250,9 +408,9 @@
     
     
     <div class="count">
-        <a class="count articles"><span>3</span>Article</a>
+        <a class="count articles"><span>1</span>Article</a>
         <a class="count tags"><span>1</span>Tags</a>
-        <a class="count categories"><span>2</span>Categories</a>
+        <a class="count categories"><span>1</span>Categories</a>
     </div>
 </div>
 
@@ -289,36 +447,10 @@
                     <span>1</span>
                 </p>
                 <p class="title">
-                    <a href="/2022/03/10/unitylearn/" title="unitylearn">unitylearn</a>
+                    <a href="/2022/03/11/%E6%B5%8B%E8%AF%95%E8%A6%86%E7%9B%96%E7%8E%87%E7%AC%94%E8%AE%B0/" title="测试覆盖率笔记">测试覆盖率笔记</a>
                 </p>
             </div>
             
-        </li>
-        
-        
-        
-        <li>
-            <div class="normal">
-                <p class="index">
-                    <span>2</span>
-                </p>
-                <p class="title">
-                    <a href="/2022/03/10/classnote/" title="classnote">classnote</a>
-                </p>
-            </div>
-        </li>
-        
-        
-        
-        <li>
-            <div class="normal">
-                <p class="index">
-                    <span>3</span>
-                </p>
-                <p class="title">
-                    <a href="/2022/03/09/hello-world/" title="Hello World">Hello World</a>
-                </p>
-            </div>
         </li>
         
         
@@ -334,13 +466,8 @@
     <div class="cube-boxs">
         
         
-        <div class="cube-box-bg ">
-            <a href="/categories/Notes/">#Notes</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/categories/Games/">#Games</a>
+        <div class="cube-box ">
+            <a href="/categories/%E6%99%BA%E8%83%BD%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/">#智能软件测试</a>
         </div>
         
     </div>
@@ -356,7 +483,7 @@
         
         
         <div class="cube-box ">
-            <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">#学习笔记</a>
+            <a href="/tags/ClassNote/">#ClassNote</a>
         </div>
         
     </div>

@@ -73,7 +73,7 @@
         
         <li>
             <i class="cube-icon cube-icon-categories" aria-hidden="true"></i>
-            <a href="/categories/Notes">分类</a>
+            <a href="/categories">分类</a>
         </li>
         
         <li>
@@ -161,16 +161,18 @@
     <div class="cube-content">
         <div class="cube-left">
             
-<div class="cube-excerpt" id="cube-excerpt-unitylearn">
+<div class="cube-excerpt" id="cube-excerpt-测试覆盖率笔记">
     <header class="cube-excerpt-header">
-        <h1><a href="/2022/03/10/unitylearn/">unitylearn</a></h1>
+        <h1><a href="/2022/03/11/%E6%B5%8B%E8%AF%95%E8%A6%86%E7%9B%96%E7%8E%87%E7%AC%94%E8%AE%B0/">测试覆盖率笔记</a></h1>
         <div class="cube-excerpt-header-msg">
             <div class="cube-excerpt-date">
                 <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
-                2022-03-10
+                2022-03-11
             </div>
             <div class="cube-excerpt-tags">
                 <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+                
+                <a href="/tags/ClassNote/" class="cube-excerpt-tag-link">#ClassNote</a>
                 
             </div>
         </div>
@@ -178,299 +180,187 @@
     <article class="cube-excerpt-entry cube-markdown">
         
         
-           
-        
-    </article>
-    <footer class="cube-excerpt-footer">
-        <a class="cube-excerpt-more" href="/2022/03/10/unitylearn/">Read More</a>
-    </footer>
-</div>
-
-<div class="cube-excerpt" id="cube-excerpt-classnote">
-    <header class="cube-excerpt-header">
-        <h1><a href="/2022/03/10/classnote/">classnote</a></h1>
-        <div class="cube-excerpt-header-msg">
-            <div class="cube-excerpt-date">
-                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
-                2022-03-10
-            </div>
-            <div class="cube-excerpt-tags">
-                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
-                
-                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="cube-excerpt-tag-link">#学习笔记</a>
-                
-            </div>
-        </div>
-    </header>
-    <article class="cube-excerpt-entry cube-markdown">
-        
-        
-           <h1 id="第二章-系统建模"><a href="#第二章-系统建模" class="headerlink" title="第二章 系统建模"></a>第二章 系统建模</h1><blockquote>
-<p><strong>格物致知</strong>《礼记·大学》  </p>
-</blockquote>
+           <h1 id="Criteria-Based-Test-Design"><a href="#Criteria-Based-Test-Design" class="headerlink" title="Criteria-Based Test Design"></a>Criteria-Based Test Design</h1><p>[toc]</p>
 <hr>
-<h2 id="一-有限状态机"><a href="#一-有限状态机" class="headerlink" title="一 有限状态机"></a>一 有限状态机</h2><ul>
-<li><p>介绍：  </p>
-<ul>
-<li>智能嵌入式系统的重要功能之一就是<strong>离散事件控制</strong>，即系统从一个状态切换到另一个状态。  </li>
-<li>具有有限个状态并进行状态间切换的系统可以用<strong>有限自动机</strong>建模。</li>
+<h2 id="一-新旧测试观念"><a href="#一-新旧测试观念" class="headerlink" title="一 新旧测试观念"></a>一 新旧测试观念</h2><ul>
+<li>旧的测试观念<ul>
+<li>旧的观点把重点放在每个软件开发阶段的测试上</li>
+<li>因为它与其他阶段非常不同单元，例如模块，集成，系统…</li>
 </ul>
 </li>
-<li><p>定义：  </p>
-<ul>
-<li><img src="/2022/03/10/classnote/2.1.png" alt="2.1"></li>
+<li>新的测试观念<ul>
+<li>侧重结构和标准方面<ul>
+<li>输入空间</li>
+<li>图</li>
+<li>逻辑表达式</li>
+<li>语法<br><img src="/2022/03/11/%E6%B5%8B%E8%AF%95%E8%A6%86%E7%9B%96%E7%8E%87%E7%AC%94%E8%AE%B0/Users/19318/Desktop/智能软件测试/考试与笔记/ch1.4笔记/1.png" alt="1"></li>
 </ul>
 </li>
-<li><p>一个有限自动状态机可用带权值的有向图表示：</p>
-<ul>
-<li><img src="/2022/03/10/classnote/2.2.png" alt="2.2"></li>
-<li>如图，有限自动状态机含有四个状态S<del>1</del>,S<del>2</del>,S<del>3</del>,S<del>4</del>,两个输入元素0和1，有四个状态转移</li>
-<li>系统的输入出发了系统状态的转移，因此系统输入成了系统状态转移的触发因素</li>
+<li>每个阶段的测试设计基本相同</li>
+<li>创建模型是不同的</li>
+<li>选择值和自动化测试是不同的</li>
 </ul>
 </li>
 </ul>
 <hr>
-<h2 id="二-输入输出有限状态机（IO自动机）"><a href="#二-输入输出有限状态机（IO自动机）" class="headerlink" title="二 输入输出有限状态机（IO自动机）"></a>二 输入输出有限状态机（IO自动机）</h2><ul>
-<li><p>在有限状态机的基础上，增加<strong>输入集</strong>和<strong>输出函数</strong>，形成输入输出有限状态机  </p>
-</li>
-<li><p>IO自动机应用于与环境交互或者自适应智能系统的建模</p>
-</li>
-<li><p>由于输入函数的不同又将自动机分为两类  </p>
-<ul>
-<li> <strong>Moore型自动机</strong></li>
-<li> <strong>Mealy型自动机</strong></li>
+<h2 id="二-测试覆盖率标准（Test-Coverage-Criteria）"><a href="#二-测试覆盖率标准（Test-Coverage-Criteria）" class="headerlink" title="二 测试覆盖率标准（Test Coverage Criteria）"></a>二 测试覆盖率标准（Test Coverage Criteria）</h2><ul>
+<li>Test Requirements:<ul>
+<li>测试用例必须满足或覆盖的软件的特定元素</li>
 </ul>
 </li>
-<li><p>定义：</p>
-<ul>
-<li><img src="/2022/03/10/classnote/2.3.png" alt="2.3"></li>
-</ul>
-</li>
-<li><p>Moore型自动机</p>
-<ul>
-<li>Moore型自动机是基于状态的，其输出函数 <strong>h:S-&gt;0</strong></li>
-</ul>
-</li>
-<li><p>Mealy型自动机</p>
-<ul>
-<li>Mealy型自动机是基于状态和输入的，其输出函数<strong>h:S×I-&gt;O</strong> </li>
+<li>Coverage Criterion:<ul>
+<li>对测试集施加测试要求的规则或规则集合</li>
 </ul>
 </li>
 </ul>
 <blockquote>
-<ul>
-<li>简单的来说，Moore型自动机就是将状态值和输出写在状态里，边的权值则是输入  </li>
-<li>Mealy型自动机则是将状态值单独写在状态中，输入和输出写在边的权值上<br><img src="/2022/03/10/classnote/2.4.png" alt="2.4"></li>
-</ul>
+<p>测试者的任务就是，建立针对测试软件的模型，寻找可以覆盖它的方法  </p>
 </blockquote>
+<hr>
+<h2 id="三-覆盖（Coverage）"><a href="#三-覆盖（Coverage）" class="headerlink" title="三 覆盖（Coverage）"></a>三 覆盖（Coverage）</h2><ul>
+<li><p>定义：</p>
 <ul>
-<li><p>在进行Moore型自动机建模时，需要列出：</p>
-<ul>
-<li>状态集 </li>
-<li>输入集</li>
-<li>输出集</li>
-<li>状态转移函数f: S×I-&gt;S</li>
-<li>输出函数H: S-&gt;O</li>
-<li>初始状态</li>
+<li>给定<strong>覆盖标准C</strong>的一组<strong>测试需求TR</strong>，测试集T<strong>满足</strong>C覆盖当且仅当对于TR中的每个测试需求tr，T中至少有一个测试t，使得t满足tr</li>
 </ul>
 </li>
-<li><p>在进行Mealy型自动机建模时，需要对以下元素进行调整：</p>
+<li><p><strong>不可行测试需求</strong>——无法满足的测试要求</p>
 <ul>
-<li>输出集</li>
-<li>输出函数H: S×I-&gt;O</li>
+<li>不存在满足测试要求的测试用例值</li>
+<li>示例：死代码</li>
+<li>对于大多数测试标准来说，不可行测试需求的检测在形式上是不可判定的</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>因此，100%的覆盖率在实践中是不可能的</p>
+</blockquote>
+<ul>
+<li>例子<br><img src="/2022/03/11/%E6%B5%8B%E8%AF%95%E8%A6%86%E7%9B%96%E7%8E%87%E7%AC%94%E8%AE%B0/Users/19318/Desktop/智能软件测试/考试与笔记/ch1.4笔记/2.png" alt="2"></li>
+</ul>
+<p>给定两个覆盖准则：</p>
+<blockquote>
+<p>口味覆盖：每种口味吃一个糖<br>颜色覆盖：每种颜色吃一个糖  </p>
+</blockquote>
+<ul>
+<li>给定一个测试集<br>T1 = { three Lemons, one Pistachio, two Cantaloupes, one Pear, one Tangerine, four Apricots }</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">测试集T1满足口味覆盖么?</span><br></pre></td></tr></table></figure>
+
+<p>答案：<font color="red">满足</font>，因为六种口味都测试到了</p>
+<ul>
+<li>给定一个测试集<br>T2 = { One Lemon, two Pistachios, one Pear, three Tangerines }</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">测试集T2满足口味覆盖么?</span><br></pre></td></tr></table></figure>
+
+<p>答案：<font color="red">不满足</font></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">测试集T2满足颜色覆盖么?</span><br></pre></td></tr></table></figure>
+
+<p>答案：<font color="red">满足</font></p>
+<hr>
+<h2 id="四-覆盖等级"><a href="#四-覆盖等级" class="headerlink" title="四 覆盖等级"></a>四 覆盖等级</h2><ul>
+<li><p><strong>T满足的测试要求的数量与TR大小的比率</strong></p>
+</li>
+<li><p>测试集T2的口味覆盖等级为4/6</p>
+</li>
+</ul>
+<hr>
+<h2 id="五-使用测试准则（Test-Criteria）的两种方法"><a href="#五-使用测试准则（Test-Criteria）的两种方法" class="headerlink" title="五 使用测试准则（Test Criteria）的两种方法"></a>五 使用测试准则（Test Criteria）的两种方法</h2><ul>
+<li><p>直接生成满足标准的测试值</p>
+<ul>
+<li>通常由研究界承担</li>
+<li>使用标准的最明显方式</li>
+<li>没有自动化工具很难</li>
+</ul>
+</li>
+<li><p>从外部生成测试值，并根据标准进行评估</p>
+<ul>
+<li>通常受到工业界的青睐</li>
+<li>有时误导</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Test Criteria有时被称为<strong>metrics</strong></p>
+</blockquote>
+<hr>
+<h2 id="六-Generators-and-Recognizers"><a href="#六-Generators-and-Recognizers" class="headerlink" title="六 Generators and Recognizers"></a>六 Generators and Recognizers</h2><ul>
+<li><p>生成器：自动生成满足标准的值的过程</p>
+</li>
+<li><p>识别器：决定一组给定测试值是否满足标准的程序</p>
+</li>
+</ul>
+<blockquote>
+<p>对于大多数标准来说，这两个都是不可证明的  </p>
+</blockquote>
+<ul>
+<li>与生成满足标准的测试相比，识别测试用例是否满足标准的频率要高得多</li>
+</ul>
+<hr>
+<h2 id="七-标准包含（Subsumption）"><a href="#七-标准包含（Subsumption）" class="headerlink" title="七 标准包含（Subsumption）"></a>七 标准包含（Subsumption）</h2><ul>
+<li>定义<ul>
+<li>测试标准C1包含C2当且仅当满足标准C1的每组测试用例也满足C2</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>对于每一组测试用例都必须为真</p>
+</blockquote>
+<ul>
+<li><p>例如上题：</p>
+<ul>
+<li><p>糖的味道标准包含了颜色标准</p>
+<ul>
+<li>如果我们品尝每种味道，我们就会品尝每种颜色中的一种</li>
+</ul>
+</li>
+<li><p>分支覆盖包含语句覆盖</p>
+<ul>
+<li>如果一个测试集覆盖了程序中的每个分支（满足分支标准），那么该测试集就保证也覆盖了每个语句</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 <hr>
-<h2 id="三-数据有限状态机"><a href="#三-数据有限状态机" class="headerlink" title="三 数据有限状态机"></a>三 数据有限状态机</h2><p>数据有限状态机能简单处理依赖于系统数据变化的有限状态机模型</p>
-<h3 id="1-数据流图（Dataflow-Graph，DFG）"><a href="#1-数据流图（Dataflow-Graph，DFG）" class="headerlink" title="1.数据流图（Dataflow Graph，DFG）"></a>1.数据流图（Dataflow Graph，DFG）</h3><ul>
-<li><p>数据流图是最普遍的描述计算密集系统的方法</p>
+<h2 id="八-良好覆盖标准的特点"><a href="#八-良好覆盖标准的特点" class="headerlink" title="八 良好覆盖标准的特点"></a>八 良好覆盖标准的特点</h2><ol>
+<li><p>自动计算测试需求应该相当容易</p>
 </li>
-<li><p>数学公式可以由一个有向图来表示，其中：</p>
-<ul>
-<li><strong>节点</strong>代表<strong>计算</strong>或<strong>函数</strong></li>
-<li><strong>边</strong>代表<strong>执行的顺序</strong></li>
-</ul>
+<li><p>生成测试值应该是有效的</p>
 </li>
-<li><p>定义：</p>
-<ul>
-<li><p><img src="/2022/03/10/classnote/2.5.png" alt="2.5"></p>
+<li><p>由此产生的测试应尽可能多地揭示故障</p>
 </li>
-<li><p>在数据流图中，边总是数据输入和输出。因为计算的时间，边的数据有了延迟，这样就形成了与时间相关的数据流。</p>
-</li>
-<li><p>符号v’表示t时刻的L元向量v</p>
-</li>
-<li><p>符号v<sup>0</sup>为初始时刻的边向量</p>
-</li>
-<li><p><strong>⊥</strong>表示当前时间在这条边上的输出值需要取决于先前已知的输出值，也就是目前还没有被计算出来</p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="2-数据有限状态机"><a href="#2-数据有限状态机" class="headerlink" title="2.数据有限状态机"></a>2.数据有限状态机</h3><ul>
-<li><p>大多数实时系统具有控制和计算结合的特征，这样就要求要把有限状态自动机和数据流图结合在一起。</p>
-<ul>
-<li>把时间划分成相等的时间区间，这个时间区间称为状态</li>
-<li>把一个或多个状态不知道数据流图的每个节点</li>
-</ul>
-</li>
-<li><p>这个组合模型就是<strong>带有数据流有限状态机模型（FSMD）</strong></p>
-</li>
-<li><p>扩展有限状态机FSM具体做法是：</p>
-<ul>
-<li>引入<strong>数据变量</strong>，<strong>数据输入</strong>和<strong>数据输出</strong></li>
-</ul>
-</li>
-<li><p><strong>数据变量集合</strong>用X来表示，其元素使用x表示，定义数据状态</p>
-<ul>
-<li>该数据状态定义了每个节点的所有变量值</li>
-<li><strong>Expr(X)</strong> 是数据变量集合X上的算术表达式集合，e或ei或ej表示其元素</li>
-<li>使用BNF方法定义e为：<ul>
-<li>e::=k|x|e*e (*∈{+,-,×})</li>
-<li>其中 k 是常值，x∈X 是变量，都是原子算术表达式，而 e1+e2,e1-e2,e1×e2 是复合算术表达式</li>
-<li>使用数据算术表达式定义状态转移条件以及在数据输出情况</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>算术逻辑公式AL</p>
-<ul>
-<li><strong>AL::=ei∆ej|ei□ej|¬ei</strong></li>
-<li>其中 ei，ej ∈Expr(X)是 X 上的算术表达式</li>
-<li>∆∈{≤，&lt;，=，&gt;， ≥}是算术表达式间关系</li>
-<li>□∈{∧，∨，→}是逻辑运算符（<strong>合取、析取、蕴涵</strong>）</li>
-<li>¬是逻辑运算符<strong>非</strong></li>
-<li>ei∆ej 是算术逻辑<strong>原子公式</strong></li>
-<li>ei□ej 与¬ei 是算术逻辑<strong>合式公式</strong></li>
-</ul>
-</li>
-<li><p><strong>定义</strong></p>
-<ul>
-<li><blockquote>
-<p>FSMD 含有<strong>状态集 S</strong>，<strong>数据变量集 X</strong>，<strong>输入集 I</strong>，<strong>输出集 O</strong>，<strong>转移函数 f</strong> 和<strong>输出函数 h</strong>  </p>
+</ol>
+<blockquote>
+<p>包含只是故障揭示能力的粗略近似值</p>
 </blockquote>
+<h2 id="九-覆盖标准的优点"><a href="#九-覆盖标准的优点" class="headerlink" title="九 覆盖标准的优点"></a>九 覆盖标准的优点</h2><ul>
+<li><p>标准最大限度地提高了“成本效益”</p>
 <ul>
-<li><p>转移函数的定义需要状态的转移条件，因此增加<strong>转移条件集ST</strong></p>
+<li>更少的测试更有效地发现故障</li>
+</ul>
 </li>
-<li><p>转移条件由算术逻辑公式AL定义</p>
+<li><p>具有最小重叠的综合测试集</p>
 </li>
-<li><p>FSMD的输入集合I分解成 <strong>数据输入变量集合I<del>D</del>和控制输入变量集合I<del>C</del>组成的二元组</strong></p>
-</li>
-<li><p>I是I<del>D</del>和I<del>C</del>的笛卡尔积</p>
+<li><p>从软件工件到测试的可追溯性</p>
 <ul>
-<li>I = I<del>D</del>×I<del>C</del></li>
-<li>这样输入元素是二元组(d,c)，或者直接写成d;c，其中d是数据输入变量值；c是控制输入变量元素</li>
+<li>来源、需求、设计模型…</li>
+<li>回答每个测试的“为什么”</li>
+<li>对回归测试的内置支持</li>
 </ul>
 </li>
-<li><p>FSMD的输出集合O定义成<strong>数据输出变量集</strong>O<del>D</del>和<strong>控制输出变量集</strong>O<del>C</del>的笛卡尔乘积</p>
+<li><p>测试的“停止规则”可以提前知道需要进行多少次测试</p>
 <ul>
-<li>O = O<del>D</del>×O<del>C</del></li>
-<li>O<del>D</del>中的元素是赋值语句，形如 <strong>A:=B</strong></li>
-<li>O<del>C</del>中的元素是控制输出变量向量，形如<strong>A&lt;=B</strong></li>
+<li>有利于自动操作</li>
 </ul>
 </li>
-</ul>
-</li>
-<li><p>带有数据流的有限状态机FSMD实质上是把 S×X 中的元素转移到 S×X 中的元素，这种转移还要依赖于当前数据输入变量的输入值，其形式化定义为</p>
-<ul>
-<li>转移函数 f: (S×X)×I×ST-&gt;S×X</li>
-</ul>
+<li><p>可以通过强大的工具得到很好的支持</p>
 </li>
 </ul>
-</li>
-</ul>
-<h3 id="3-例子"><a href="#3-例子" class="headerlink" title="3.例子"></a>3.例子</h3><p><strong>1. N 层电梯 Mealy 数据有限状态机</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">设有一座有 N 层高的楼，装有电梯 <span class="number">1</span> 部，每层楼都能到达。</span><br><span class="line">建立该电梯的 Mealy 型数据有限状态机 FSMD</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>定义全局变量 cfloor 存贮电梯的楼层当前状态值：1、2、3、…、N</li>
-<li>变量 rfloor 存贮请求要到达的楼层值:1、2、3、…、N</li>
-<li>使用一个状 态 s1，有三个转移都是 s1 到 s1 的。但转移条件和输出（动作）是不同的</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>建模</th>
-<th>变量名</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>状态集</td>
-<td>S1</td>
-</tr>
-<tr>
-<td>数据变量集</td>
-<td>cfloor,rfloor</td>
-</tr>
-<tr>
-<td>控制输入集</td>
-<td>null</td>
-</tr>
-<tr>
-<td>数据输入变量</td>
-<td>rfloor</td>
-</tr>
-<tr>
-<td>数据输入集</td>
-<td>1,2,3,,,N</td>
-</tr>
-<tr>
-<td>数据输出变量集</td>
-<td>cfloor</td>
-</tr>
-<tr>
-<td>控制输出变量集</td>
-<td>d,u,n</td>
-</tr>
-<tr>
-<td>转移条件集 ST</td>
-<td>{cfloor &gt; rfloor, cfloor &lt; rfloor, cfloor=rfloor</td>
-</tr>
-</tbody></table>
-<p><img src="/2022/03/10/classnote/2.6.png" alt="2.6"></p>
 
         
     </article>
     <footer class="cube-excerpt-footer">
-        <a class="cube-excerpt-more" href="/2022/03/10/classnote/">Read More</a>
-    </footer>
-</div>
-
-<div class="cube-excerpt" id="cube-excerpt-Hello World">
-    <header class="cube-excerpt-header">
-        <h1><a href="/2022/03/09/hello-world/">Hello World</a></h1>
-        <div class="cube-excerpt-header-msg">
-            <div class="cube-excerpt-date">
-                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
-                2022-03-09
-            </div>
-            <div class="cube-excerpt-tags">
-                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
-                
-            </div>
-        </div>
-    </header>
-    <article class="cube-excerpt-entry cube-markdown">
-        
-        
-           <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-        
-    </article>
-    <footer class="cube-excerpt-footer">
-        <a class="cube-excerpt-more" href="/2022/03/09/hello-world/">Read More</a>
+        <a class="cube-excerpt-more" href="/2022/03/11/%E6%B5%8B%E8%AF%95%E8%A6%86%E7%9B%96%E7%8E%87%E7%AC%94%E8%AE%B0/">Read More</a>
     </footer>
 </div>
 
@@ -537,9 +427,9 @@
     
     
     <div class="count">
-        <a class="count articles"><span>3</span>Article</a>
+        <a class="count articles"><span>1</span>Article</a>
         <a class="count tags"><span>1</span>Tags</a>
-        <a class="count categories"><span>2</span>Categories</a>
+        <a class="count categories"><span>1</span>Categories</a>
     </div>
 </div>
 
@@ -576,36 +466,10 @@
                     <span>1</span>
                 </p>
                 <p class="title">
-                    <a href="/2022/03/10/unitylearn/" title="unitylearn">unitylearn</a>
+                    <a href="/2022/03/11/%E6%B5%8B%E8%AF%95%E8%A6%86%E7%9B%96%E7%8E%87%E7%AC%94%E8%AE%B0/" title="测试覆盖率笔记">测试覆盖率笔记</a>
                 </p>
             </div>
             
-        </li>
-        
-        
-        
-        <li>
-            <div class="normal">
-                <p class="index">
-                    <span>2</span>
-                </p>
-                <p class="title">
-                    <a href="/2022/03/10/classnote/" title="classnote">classnote</a>
-                </p>
-            </div>
-        </li>
-        
-        
-        
-        <li>
-            <div class="normal">
-                <p class="index">
-                    <span>3</span>
-                </p>
-                <p class="title">
-                    <a href="/2022/03/09/hello-world/" title="Hello World">Hello World</a>
-                </p>
-            </div>
         </li>
         
         
@@ -621,13 +485,8 @@
     <div class="cube-boxs">
         
         
-        <div class="cube-box ">
-            <a href="/categories/Notes/">#Notes</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/categories/Games/">#Games</a>
+        <div class="cube-box-bg ">
+            <a href="/categories/%E6%99%BA%E8%83%BD%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/">#智能软件测试</a>
         </div>
         
     </div>
@@ -643,7 +502,7 @@
         
         
         <div class="cube-box ">
-            <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">#学习笔记</a>
+            <a href="/tags/ClassNote/">#ClassNote</a>
         </div>
         
     </div>
